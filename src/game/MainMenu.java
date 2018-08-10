@@ -5,6 +5,7 @@ import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.Input;
 import org.newdawn.slick.SlickException;
+import org.newdawn.slick.command.Command;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 import org.newdawn.slick.state.transition.FadeInTransition;
@@ -85,19 +86,19 @@ public class MainMenu extends BasicGameState {
 		buttonpressedtime += Timing.getTimeMs() - lastframetime;
 		
 		// get inputs
-		if (input.isKeyPressed(Input.KEY_W)){
+		if (input.isKeyPressed(Options.keybindings.get("up"))){
 			selection -= 1;
 			if (selection < 0) {
 				selection = numberofoptions - 1;
 			}
 			buttonpressedtime = 0;
-		} else if (input.isKeyPressed(Input.KEY_S)){
+		} else if (input.isKeyPressed(Options.keybindings.get("down"))){
 			selection += 1;
 			if (selection >= numberofoptions) {
 				selection = 0;
 			}
 			buttonpressedtime = 0;
-		} else if (input.isKeyPressed(Input.KEY_ENTER)) {
+		} else if (input.isKeyPressed(Options.keybindings.get("select"))) {
 			switch (selection) {
 			case 0:
 				sbg.enterState(2, null, new VerticalSplitTransition());
@@ -114,7 +115,7 @@ public class MainMenu extends BasicGameState {
 		// sets the time of the last frame, for timing purposes
 		lastframetime = Timing.getTimeMs();
 	}
-
+	
 	// Returning 'ID' from class 'MainMenu'
 	@Override
 	public int getID() {

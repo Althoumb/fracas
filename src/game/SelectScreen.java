@@ -42,8 +42,8 @@ public class SelectScreen extends BasicGameState implements KeyListener, InputPr
 		InputProvider provider = new InputProvider(gc.getInput());
 		provider.addListener(this);
 		
-		for (Integer key : Options.keybindings.keySet()) {
-			provider.bindCommand(new KeyControl(key), new BasicCommand(Options.keybindings.get(key)));
+		for (String key : Options.keybindings.keySet()) {
+			provider.bindCommand(new KeyControl(Options.keybindings.get(key)), new BasicCommand(key));
 		}
 		
 		for (int i = 1; i <= players; i++) {
