@@ -31,7 +31,7 @@ public class Main extends StateBasedGame {
         this.addState(new SplashScreen());
         this.addState(new MainMenu());
         this.addState(new SelectScreen());
-        //this.addState(new Game());
+        this.addState(new Game());
         this.addState(new Options());
     }
 
